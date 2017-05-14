@@ -1,3 +1,3 @@
 # Intelektikos Pagrindų modulio semestro projektas.
 
-Atlieka: Aivaras Baranauskas IFF-4/3 it Paulius Patalavičius IFF-4/3
+Atlieka: Aivaras Baranauskas IFF-4/3 ir Paulius Patalavičius IFF-4/3
