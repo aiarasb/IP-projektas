@@ -1,5 +1,6 @@
 from provider import Provider
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 import time
 
 if __name__ == '__main__':
@@ -22,6 +23,44 @@ if __name__ == '__main__':
     for col in resultCols:
         resultIndexMap.append(header.index(col))
 
+    maxes = [0 for x in range(len(dataCols))]
+
+    # 3D PLOT -------------------------------------------
+    # data2 = []
+    # for line in data:
+    #     if int(line[dataIndexMap['AGE']]) >= 18: #AGE
+    #         lineData = []
+    #         for i, col in enumerate(dataCols):
+    #             val = -1.0
+    #             if len(line[dataIndexMap[col]]) > 0:
+    #                 val = float(line[dataIndexMap[col]])
+    #             lineData.append(val)
+    #             if maxes[i] < val:
+    #                 maxes[i] = val
+    #         data2.append(lineData)
+    #         ress = 0.0
+    #         for index in resultIndexMap:
+    #             if len(line[index])>0:
+    #                 ress = ress + float(line[index])
+    #         res.append(ress)
+
+    # def divvv(a):
+    #     b = []
+    #     for i, x in enumerate(a):
+    #         b.append(x/maxes[i])
+    #     return b
+
+    # data3 = map(divvv, data2)
+
+    # print('plotting...')
+
+    # fig = plt.figure()
+    # ax = fig.add_subplot(111, projection='3d')
+    # for i, line in enumerate(data3):
+    #     plt.plot([x for x in range(len(line))], line, [res[i] for x in range(len(line))])
+    # plt.show()
+
+    # 2D PLOT ---------------------------------------------
     for line in data:
         if int(line[dataIndexMap['AGE']]) >= 18: #AGE
             for col in dataCols:
