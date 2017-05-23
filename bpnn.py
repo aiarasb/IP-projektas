@@ -32,9 +32,10 @@ if __name__ == '__main__':
         w.write('%f;%f\n' % (target[i][0]*mult, line[0]*mult))
     w.close()
 
-    net.save('network5.net')
+    net.save('network6.net')
     # 1 - bpnn, 1 layer
     # 2 - simple train, 1 layer hidden
     # 3 - simple train, 2x2 layer hidden
     # 4 - simple train, 3x2 layer hidden <-- looks best
     # 5 - simple train, 3x3
+    # 6 - less inputs, 3x3

@@ -1,7 +1,9 @@
 import csv
 
 class Provider:
-    dataCols = ['RB050', 'AGE', 'RB090', 'PB190', 'PE010', 'PE030', 'PH030', 'PL031', 'PL190']
+    dataCols = ['PB030', 'HB030', 'RB050', 'AGE', 'RB090', 'RB220', 'RB230', 'RB240', 'RL010', 'RL020', 'RL030', 'RL040', 'RL050', 'RL060', 'PB190', 'PB200', 'PE010', 'PE020', 'PE030', 'PE040', 'PH010', 'PH020', 'PH030', 'PH040', 'PH050', 'PH060', 'PH070', 'PL015', 'PL020', 'PL025', 'PL031', 'PL040', 'PL051', 'PL060', 'PL073', 'PL074', 'PL075', 'PL076', 'PL080', 'PL085', 'PL086', 'PL087', 'PL088', 'PL089', 'PL090', 'PL100', 'PL111', 'PL120', 'PL190', 'PL200', 'PL130', 'PL140', 'PL150']
+    # dataCols = ['RB050', 'AGE', 'RB090', 'PB190', 'PE010', 'PE030', 'PH030', 'PL031', 'PL190']
+    # dataCols = ['RB050', 'AGE', 'RB090', 'PB190', 'PE010', 'PL031']
     resultCols = ['PY010G', 'PY050G']
     data = []
     rawData = []
