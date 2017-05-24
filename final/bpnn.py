@@ -41,3 +41,26 @@ if __name__ == '__main__':
     # 6 - less inputs, 3x3
     # 7 - simple, 1, feature-selected
     # 7 - simple, 2x2, feature-selected
+
+class Nn:
+    def __init__(self, provider):
+        self.provider = provider
+        self.net = nl.load('network7.net')
+
+    def test(self, test_no):
+        input = []
+        target = []
+        mult = self.provider.multiplier
+        if (test_no == 2):
+            data = self.provider.getValidationData()
+        else:
+            data = self.provider.getTestData()
+        
+        for d in data:
+            input.append(d[0])
+            target.append([d[1][0]/mult])
+        res = self.net.sim(input)
+        results = []
+        for i, line in enumerate(res):
+            results.append([target[i][0]*mult, line[0]*mult])
+        return results

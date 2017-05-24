@@ -14,7 +14,7 @@ class Reducer:
             inputData.append(d[0])
             targetData.append(d[1])
         X = np.array(inputData)
-        pca = PCA(n_components=5)
+        pca = PCA(n_components=10)
         XX = pca.fit_transform(X)
         for i, t in enumerate(targetData):
             self.data.append([XX[i], t])
