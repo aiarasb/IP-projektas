@@ -2,6 +2,9 @@ from provider import Provider
 from feature_selection import Selector
 import numpy as np
 import neurolab as nl
+from sklearn.metrics import mean_squared_error
+from math import sqrt
+import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
     provider = Selector()
@@ -63,4 +66,12 @@ class Nn:
         results = []
         for i, line in enumerate(res):
             results.append([target[i][0]*mult, line[0]*mult])
+        w = open('bpnn_mse.txt', 'w')
+        w.write('%f;\n' % sqrt(mean_squared_error(target, res)))
+        w.close()
+        plt.plot(target, 'b', res, 'r')
+        plt.ylabel('Reikšmė')
+        plt.xlabel('Masyvo elementas')
+        plt.title('Back propagation grafikas')
+        plt.show()
         return results

@@ -1,5 +1,8 @@
 from feature_selection import Selector
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+from math import sqrt
+import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
     # reducer = Reducer()
@@ -61,4 +64,12 @@ class Linear:
         results = []
         for i, line in enumerate(res):
             results.append([target[i], line])
+        w = open('linear_mse.txt', 'w')
+        w.write('%f;\n' % sqrt(mean_squared_error(target, res)))
+        w.close()
+        plt.plot(target, 'b', res, 'r')
+        plt.ylabel('Reikšmė')
+        plt.xlabel('Masyvo elementas')
+        plt.title('Multiple linear regression grafikas')
+        plt.show()
         return results

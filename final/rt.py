@@ -1,6 +1,9 @@
 from provider import Provider
 from feature_selection import Selector
 from sklearn import tree
+from sklearn.metrics import mean_squared_error
+from math import sqrt
+import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
     provider = Selector()
@@ -58,4 +61,12 @@ class Rt:
         results = []
         for i, line in enumerate(res):
             results.append([target[i], line])
+        w = open('rt_mse.txt', 'w')
+        w.write('%f;\n' % sqrt(mean_squared_error(target, res)))
+        w.close()
+        plt.plot(target, 'b', res, 'r')
+        plt.ylabel('Reikšmė')
+        plt.xlabel('Masyvo elementas')
+        plt.title('Regression tree grafikas')
+        plt.show()
         return results
