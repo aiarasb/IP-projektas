@@ -53,7 +53,9 @@ class Nn:
     def test(self, test_no):
         input = []
         target = []
-        mult = self.provider.multiplier
+        rez = []
+        trg = []
+        self.mult = self.provider.multiplier
         if (test_no == 2):
             data = self.provider.getValidationData()
         else:
@@ -61,17 +63,19 @@ class Nn:
         
         for d in data:
             input.append(d[0])
-            target.append([d[1][0]/mult])
+            target.append([d[1][0]/self.mult])
         res = self.net.sim(input)
         results = []
         for i, line in enumerate(res):
-            results.append([target[i][0]*mult, line[0]*mult])
+            results.append([target[i][0]*self.mult, line[0]*self.mult])
+            rez.append(line*self.mult)
+            trg.append(target[i][0]*self.mult)
         w = open('bpnn_mse.txt', 'w')
-        w.write('%f;\n' % sqrt(mean_squared_error(target, res)))
+        w.write('%f;\n' % sqrt(mean_squared_error(trg, rez)))
         w.close()
-        plt.plot(target, 'b', res, 'r')
+        plt.plot(trg, 'b', rez, 'r')
         plt.ylabel('Reikšmė')
         plt.xlabel('Masyvo elementas')
-        plt.title('Back propagation grafikas')
+        plt.title('NN grafikas')
         plt.show()
         return results

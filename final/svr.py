@@ -55,6 +55,8 @@ class SvrN:
     def test(self, test_no):
         input = []
         target = []
+        rez = []
+        trg = []
         if (test_no == 2):
             data = self.provider.getValidationData()
         else:
@@ -67,10 +69,12 @@ class SvrN:
         results = []
         for i, line in enumerate(res):
             results.append([target[i]*self.mult, line*self.mult])
+            rez.append(line*self.mult)
+            trg.append(target[i]*self.mult)
         w = open('svr_mse.txt', 'w')
-        w.write('%f;\n' % sqrt(mean_squared_error(target, res)))
+        w.write('%f;\n' % sqrt(mean_squared_error(trg, rez)))
         w.close()
-        plt.plot(target, 'b', res, 'r')
+        plt.plot(trg, 'b', rez, 'r')
         plt.ylabel('Reikšmė')
         plt.xlabel('Masyvo elementas')
         plt.title('Support vector regression grafikas')
